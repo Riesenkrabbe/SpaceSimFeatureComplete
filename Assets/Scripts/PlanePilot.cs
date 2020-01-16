@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlanePilot : MonoBehaviour
 {
     private Rigidbody rb;
+    public AnimationCurve SpeedCurve;
     public float speed;
     public float liftStatic = 3.0f;
     //public float railsFactor = 0.2f;
@@ -45,7 +46,7 @@ public class PlanePilot : MonoBehaviour
         
         //Drag
         Vector3 drag = rb.velocity * (-1) * Mathf.Sin(angle * Mathf.Deg2Rad) * liftStatic;//If our plane is at 90 degrees into the slipstream the drag is highest
-
+        
         
         //Rails
         //Vector3 rails = Vector3.Project(rb.velocity.normalized, rb.transform.forward)*rb.velocity.magnitude;
@@ -75,7 +76,10 @@ public class PlanePilot : MonoBehaviour
         //Apply Forces
         
         rb.AddForce(lift + drag + thrust +glide);// + glide);//+ rails);
-
+        if (rb.velocity.magnitude > 300.0f)
+        {
+            rb.velocity = rb.velocity * (300.0f / rb.velocity.magnitude);
+        }
 
         //rb.drag = Mathf.Abs(Mathf.Sin(angle * 0.0174533f * 2));
         //rb.AddForce(thrust);

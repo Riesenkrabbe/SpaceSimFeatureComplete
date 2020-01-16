@@ -32,7 +32,7 @@ public class PointSystem : MonoBehaviour
         }
         else
         {
-            combo += 1.0f * rb.velocity.magnitude/15.0f / 1000.0f;
+            combo += 1.0f * rb.velocity.magnitude/15.0f / 10.0f;
             combotimer = 0.0f;
         }
         Debug.Log(rb.velocity.magnitude);

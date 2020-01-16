@@ -17,8 +17,8 @@ public class PointDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Combo.text = "Combo: " + ps.combo;
+        Combo.text = "Combo: " + Mathf.RoundToInt(ps.combo);
         Combo.fontSize = (int)(ps.combo / 20.0f);
-        Points.text = "POINTS: " + ps.points;
+        Points.text = "POINTS: " + Mathf.RoundToInt(ps.points);
     }
 }
