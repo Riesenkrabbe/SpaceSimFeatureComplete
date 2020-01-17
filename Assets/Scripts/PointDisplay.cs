@@ -19,6 +19,10 @@ public class PointDisplay : MonoBehaviour
     {
         Combo.text = "Combo: " + Mathf.RoundToInt(ps.combo);
         Combo.fontSize = (int)(ps.combo / 20.0f);
+        if (Combo.fontSize > 30)
+        {
+            Combo.fontSize = 30;
+        }
         Points.text = "POINTS: " + Mathf.RoundToInt(ps.points);
     }
 }

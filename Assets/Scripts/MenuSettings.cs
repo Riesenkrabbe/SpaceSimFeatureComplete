@@ -52,6 +52,10 @@ public class MenuSettings : MonoBehaviour
             return false;
     }
 
+    public void quit()
+    {
+         Application.Quit();
+    }
     public void writeToFile()
     {
         PlayerPrefs.SetInt("motionblur", m_MotionBlur.enabled.value ? 1 : 0);
@@ -93,9 +97,10 @@ public class MenuSettings : MonoBehaviour
         m_DepthOfField.enabled.value = gs.m_depthOfField;
         m_ChromaticAbberation.enabled.value = gs.m_chromaticAbberation;
         RenderSettings.fogDensity = m_FogDistance;
+        m_FogDistance = gs.m_fogDistance;
         m_Bloom.enabled.value = gs.m_bloom;
         m_ScreenSpaceReflections.enabled.value = gs.m_screenSpaceReflections;
-
+        
         m_Volume = PostProcessManager.instance.QuickVolume(gameObject.layer, 100f, m_MotionBlur,m_DepthOfField,m_ChromaticAbberation,m_Bloom,m_ScreenSpaceReflections); 
   
     }
